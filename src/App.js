@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Notification from './components/Notification';
 import Read from './components/Read';
+import'../src/components/buttons.css';
 
 function App() {
 
@@ -10,7 +11,9 @@ function App() {
   const [totalMails, setTotalMails] = useState([])
 
   const [unreadMailData, setUnreadMailData] = useState({})
+  const [unreadData, setUnreadData] = useState({})
 
+  const [favtsData, setFavtData] = useState({})
   const [unreadFvrtData, setUnreadFvrtData] = useState({})
 
 
@@ -20,6 +23,8 @@ function App() {
 
   const [postTile, setPostTile] = useState('');
   const [postDate, setPostDate] = useState('')
+
+
 
 
   const handleButtonClick = (number) =>{
@@ -37,7 +42,7 @@ function App() {
       .then(result => {
         const listData = JSON.parse(result)
         const lists = listData?.list.map(item => {
-          if(item.id == 1){
+          if(item.id === 1){
             item['favorites'] = false;  item['unread'] = true 
           }
            item['favorites'] = false;  item['unread'] = false 
@@ -115,7 +120,9 @@ function App() {
         let post = JSON.parse(result)
         sendCorrsPost(post);
       })
-      .catch(error => console.log('error', error));
+      .catch(error => {console.log('error', error)
+                      console.log(favtsData,unreadData);
+    });
   },[postID])
 
 
