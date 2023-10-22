@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Buttons from './components/Buttons';
 import Notification from './components/Notification';
 import Read from './components/Read';
 
@@ -11,9 +10,7 @@ function App() {
   const [totalMails, setTotalMails] = useState([])
 
   const [unreadMailData, setUnreadMailData] = useState({})
-  const [unreadData, setUnreadData] = useState({})
 
-  const [favtsData, setFavtData] = useState({})
   const [unreadFvrtData, setUnreadFvrtData] = useState({})
 
 
@@ -66,11 +63,11 @@ function App() {
     setPostID(index)
     if(buttonFocus !==2){
         const data = totalMails.map((item, i) => { 
-          if(item.id == 1){
+          if(item.id === 1){
             item['unread'] = true
             return item
           }
-          if(item.id == index){
+          if(item.id === index){
             item['unread'] = true
             setPostTile(item.from.name)
             setPostDate(item.date)
@@ -90,11 +87,11 @@ function App() {
     setPostID(index)
     setFavorites(true)
         const data = totalMails.map((item, i) => { 
-          if(item.id == 1){
+          if(item.id === 1){
             item['favorites'] = true
             return item
           }
-          if(item.id == index){
+          if(item.id === index){
             item['favorites'] = true
             return item
           }
@@ -127,20 +124,20 @@ function App() {
     <div className="App">
         <div className="buttons">
             <div>Filter by:</div>
-            <div className={buttonFocus == 1 && 'focus'}  onClick={()=>{handleButtonClick(1)}}>Unread</div>
-            <div className={buttonFocus == 2 && 'focus'}  onClick={()=>{handleButtonClick(2)}}>Read</div>
-            <div className={buttonFocus == 3 && 'focus'}  onClick={()=>{handleButtonClick(3)}}>Favourites</div>
+            <div className={buttonFocus === 1 && 'focus'}  onClick={()=>{handleButtonClick(1)}}>Unread</div>
+            <div className={buttonFocus === 2 && 'focus'}  onClick={()=>{handleButtonClick(2)}}>Read</div>
+            <div className={buttonFocus === 3 && 'focus'}  onClick={()=>{handleButtonClick(3)}}>Favourites</div>
         </div>
       <div className='main'>
         <div className='notification-panel'>
-          { buttonFocus == 1 && <Notification comp={1} data={mailData} onClick={sendIndex} /> }
-          { buttonFocus == 2 && <Notification comp={2} data={unreadMailData} onClick={sendIndex} /> }
-          { buttonFocus == 3 && <Notification comp={3} data={unreadFvrtData} onClick={sendIndex} /> }
+          { buttonFocus === 1 && <Notification comp={1} data={mailData} onClick={sendIndex} /> }
+          { buttonFocus === 2 && <Notification comp={2} data={unreadMailData} onClick={sendIndex} /> }
+          { buttonFocus === 3 && <Notification comp={3} data={unreadFvrtData} onClick={sendIndex} /> }
         </div>
         
-          { buttonFocus == 1 && <Read comp={1} title={postTile} fav={favorites} date={postDate} data={corrsPost} onClick={sendFavorites} />  }
-          { buttonFocus == 2 && <Read comp={2} title={postTile} fav={favorites} date={postDate} data={corrsPost} onClick={sendFavorites} />  }
-          { buttonFocus == 3 && <Read comp={3} title={postTile} fav={favorites} date={postDate} data={corrsPost} onClick={sendFavorites} /> }
+          { buttonFocus === 1 && <Read comp={1} title={postTile} fav={favorites} date={postDate} data={corrsPost} onClick={sendFavorites} />  }
+          { buttonFocus === 2 && <Read comp={2} title={postTile} fav={favorites} date={postDate} data={corrsPost} onClick={sendFavorites} />  }
+          { buttonFocus === 3 && <Read comp={3} title={postTile} fav={favorites} date={postDate} data={corrsPost} onClick={sendFavorites} /> }
 
       </div>
     </div>
