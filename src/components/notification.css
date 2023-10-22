@@ -1,0 +1,47 @@
+.notification{
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    color: #636363;
+    width: 100%;
+    border: 2px solid #cfd2dc;
+    border-radius: 10px;
+    background-color: white;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.notification-active{
+    border: 2px solid red;
+}
+
+.profile{
+    background-color: #e54065;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 500;
+    height: 60px;
+    width: 60px;
+}
+
+.favourite{
+    display: none;
+}
+
+.summary>div{
+    margin-bottom: 10px;
+}
+
+.summary{
+    width: 28vw;
+    margin-left: 20px;
+}
+
+.noti-body{
+    display: flex;
+}
