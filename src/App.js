@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Notification from './components/Notification';
 import Read from './components/Read';
-import'../src/components/buttons.css';
+import'../src/components/buttons.css'
 
 function App() {
 
@@ -121,10 +121,11 @@ function App() {
         sendCorrsPost(post);
       })
       .catch(error => {console.log('error', error)
-                      console.log(favtsData,unreadData);
+                      
     });
   },[postID])
 
+  console.log(favtsData,unreadData);
 
 
   return (
